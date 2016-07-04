@@ -1,0 +1,22 @@
+# service configuration for our dockerized Rails app
+web:
+  build: .
+  env_file: .env
+  links:
+    - redis
+  ports:
+    - "3000:3000"
+  volumes:
+    - .:/app
+redis:
+  image: redis
+  ports:
+    - "6379:6379"
+worker:
+  build: .
+  env_file: .env
+  links:
+    - redis
+  command: ruby worker.rb
+  volumes:
+    - .:/app

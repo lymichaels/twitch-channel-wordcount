@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Word</th>
+    <th>Count</th> 
+  </tr>
+<% @counts.each do |elem| %>
+  <tr>
+    <td>
+      <%= elem[0] %>
+    </td>
+    <td>
+      <%= elem[1] %>
+    </td>
+  </tr>
+<% end %>
+</table>
